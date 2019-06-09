@@ -1,4 +1,4 @@
-package org.lasencinas;
+package org.lasencinas.pedidos;
 
 import java.util.UUID;
 

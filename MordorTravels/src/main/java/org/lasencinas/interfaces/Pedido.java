@@ -5,6 +5,7 @@ public interface Pedido {
 	String destino();
 
 	int peso();
+
 	String getId();
 
 }

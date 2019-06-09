@@ -8,9 +8,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.lasencinas.interfaces.Pedido;
 import org.lasencinas.interfaces.PedidoPeligroso;
+import org.lasencinas.interfaces.Procesador;
 import org.lasencinas.interfaces.TratamientoPedido;
 import org.lasencinas.pedidos.PedidoInternacional;
+import org.lasencinas.pedidos.PedidoNacional;
 import org.lasencinas.pedidos.PedidoPeligrosoOrden;
+import org.lasencinas.procesador.Oficina;
 import org.lasencinas.procesador.TratamientoPedidoInternacional;
 import org.lasencinas.procesador.TratamientoPedidoPeligroso;
 
@@ -122,59 +125,59 @@ public class TestPedidos {
         assertTrue(internacional.getId() != nacional.getId());
     }
     
-//    /**
-//     * Construye una oficina que procese todo tipo de pedidos.
-//     * 
-//     * La oficina procesa los pedidos en funcion de si
-//     * es posible tratarlos o no segun las reglas de cada
-//     * tipo de pedido
-//     */
-//
-//    @Test
-//    public void test_interface_procesador() {
-//        
-//        Procesador correos = new Oficina();
-//        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(
-//                                            new PedidoInternacional("Comarca", 100));
-//        assertTrue(correos.procesa(pedidoInt));
-//
-//        TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(
-//                                                 new PedidoPeligrosoOrden(
-//                                                        "Cima de los vientos", 
-//                                                        "no limpiarse las uñas con este puñal"));
-//        assertTrue(correos.procesa(pedidoConPeligro));
-//    }
-//
-//    /**
-//     * La oficina puede enviar un mensaje que informe del
-//     * status del pedido, en funcion de si ha sido posible procesarlo.
-//     * 
-//     * Hace uso de un tipo enumerado STATUS con las constantes
-//     * ACEPTADO y RECHAZADO.
-//     */
-//
-//    @Test
-//    public void test_printar_status() {
-//
-//        Oficina correos = new Oficina();
-//        PedidoInternacional toComarcaWithLove = new PedidoInternacional("Comarca", 100);
-//        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(toComarcaWithLove);
-//
-//        assertTrue(correos.procesa(pedidoInt));
-//        assertEquals("Comarca ACEPTADO", correos.printarStatus(
-//                                            correos.procesa(pedidoInt), toComarcaWithLove));
-//
-//        PedidoPeligroso pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
-//                                                                    "no ponerselo en el dedo");
-//        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(pedidoConPeligro);
-//
-//        assertFalse(correos.procesa(tratamientoKO));
-//        assertEquals("Monte del destino RECHAZADO", correos.printarStatus(
-//                                                        correos.procesa(tratamientoKO), 
-//                                                                        pedidoConPeligro));
-//
-//    }
-//
+    /**
+     * Construye una oficina que procese todo tipo de pedidos.
+     * 
+     * La oficina procesa los pedidos en funcion de si
+     * es posible tratarlos o no segun las reglas de cada
+     * tipo de pedido
+     */
+
+    @Test
+    public void test_interface_procesador() {
+        
+        Procesador correos = new Oficina();
+        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(
+                                            new PedidoInternacional("Comarca", 100));
+        assertTrue(correos.procesa(pedidoInt));
+
+        TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(
+                                                 new PedidoPeligrosoOrden(
+                                                        "Cima de los vientos", 
+                                                        "no limpiarse las uñas con este puñal"));
+        assertTrue(correos.procesa(pedidoConPeligro));
+    }
+
+    /**
+     * La oficina puede enviar un mensaje que informe del
+     * status del pedido, en funcion de si ha sido posible procesarlo.
+     * 
+     * Hace uso de un tipo enumerado STATUS con las constantes
+     * ACEPTADO y RECHAZADO.
+     */
+
+    @Test
+    public void test_printar_status() {
+
+        Oficina correos = new Oficina();
+        PedidoInternacional toComarcaWithLove = new PedidoInternacional("Comarca", 100);
+        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(toComarcaWithLove);
+
+        assertTrue(correos.procesa(pedidoInt));
+        assertEquals("Comarca ACEPTADO", correos.printarStatus(
+                                            correos.procesa(pedidoInt), toComarcaWithLove));
+
+        PedidoPeligroso pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
+                                                                    "no ponerselo en el dedo");
+        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(pedidoConPeligro);
+
+        assertFalse(correos.procesa(tratamientoKO));
+        assertEquals("Monte del destino RECHAZADO", correos.printarStatus(
+                                                        correos.procesa(tratamientoKO), 
+                                                                        pedidoConPeligro));
+
+    }
+
 //    /**
 //     * Crea una clase TratamientoPedidoMultiple que permita tratar
 //     * pedidos multiples.
