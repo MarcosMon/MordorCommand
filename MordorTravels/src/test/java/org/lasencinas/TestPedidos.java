@@ -7,9 +7,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.lasencinas.interfaces.Pedido;
+import org.lasencinas.interfaces.PedidoPeligroso;
 import org.lasencinas.interfaces.TratamientoPedido;
 import org.lasencinas.pedidos.PedidoInternacional;
+import org.lasencinas.pedidos.PedidoPeligrosoOrden;
 import org.lasencinas.procesador.TratamientoPedidoInternacional;
+import org.lasencinas.procesador.TratamientoPedidoPeligroso;
 
 
 /**
@@ -50,30 +53,30 @@ public class TestPedidos {
         assertNotNull(tratamientoOK);        
         assertTrue(tratamientoOK.tratar());
     }
-//
-//    /**
-//     * Crea una clase TratamientoPedidoPeligroso que permita tratar
-//     * pedidos peligrosos.
-//     * 
-//     * La clase permite tratar todos los pedidos segun sus
-//     * instrucciones excepto aquellos cuya instruccion sea 
-//     * "no ponerselo en el dedo". 
-//     * 
-//     * Crea las clases necesarias que se requieren en los casos test
-//     * respetando los constructores que se exigen.
-//     */
-//    @Test
-//    public void test_pedido_peligroso_KO() {
-//
-//        Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
-//                                                           "no ponerselo en el dedo");
-//        assertEquals("Monte del destino", pedidoConPeligro.destino());
-//
-//        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(
-//                                                    (PedidoPeligroso) pedidoConPeligro);
-//        assertNotNull(tratamientoKO);
-//        assertFalse(tratamientoKO.tratar());
-//    }
+
+    /**
+     * Crea una clase TratamientoPedidoPeligroso que permita tratar
+     * pedidos peligrosos.
+     * 
+     * La clase permite tratar todos los pedidos segun sus
+     * instrucciones excepto aquellos cuya instruccion sea 
+     * "no ponerselo en el dedo". 
+     * 
+     * Crea las clases necesarias que se requieren en los casos test
+     * respetando los constructores que se exigen.
+     */
+    @Test
+    public void test_pedido_peligroso_KO() {
+
+        Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino", 
+                                                           "no ponerselo en el dedo");
+        assertEquals("Monte del destino", pedidoConPeligro.destino());
+
+        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(
+                                                    (PedidoPeligroso) pedidoConPeligro);
+        assertNotNull(tratamientoKO);
+        assertFalse(tratamientoKO.tratar());
+    }
 //
 //    @Test
 //    public void test_pedido_peligroso_OK() {
