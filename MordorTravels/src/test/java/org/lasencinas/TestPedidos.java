@@ -94,7 +94,7 @@ public class TestPedidos {
      * Añade a las clases PedidoInternacional y PedidoPeligrosoOrden
      * una identificador Id de tipo String
      * autogenerado haciendo uso de la clase UUID de Java
-     * https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html e
      */
     @Test
     public void test_UUID_generator() {
@@ -108,20 +108,20 @@ public class TestPedidos {
         assertTrue(internacional.getId() != peligroso.getId());
     }
 
-//    /**
-//     * Añade una clase para los pedidos nacionales.
-//     */
-//
-//    @Test
-//    public void test_pedido_nacional_UUDI() {
-//
-//        PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
-//        assertNotNull(internacional);
-//        PedidoNacional nacional = new PedidoNacional("Gondor", 50);
-//        assertNotNull(nacional);
-//        assertTrue(internacional.getId() != nacional.getId());
-//    }
-//    
+    /**
+     * Añade una clase para los pedidos nacionales.
+     */
+
+    @Test
+    public void test_pedido_nacional_UUDI() {
+
+        PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
+        assertNotNull(internacional);
+        PedidoNacional nacional = new PedidoNacional("Gondor", 50);
+        assertNotNull(nacional);
+        assertTrue(internacional.getId() != nacional.getId());
+    }
+    
 //    /**
 //     * Construye una oficina que procese todo tipo de pedidos.
 //     * 
