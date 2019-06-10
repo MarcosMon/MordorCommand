@@ -19,6 +19,7 @@ import org.lasencinas.pedidos.PedidoNacional;
 import org.lasencinas.pedidos.PedidoPeligrosoOrden;
 import org.lasencinas.procesador.Oficina;
 import org.lasencinas.procesador.TratamientoPedidoInternacional;
+import org.lasencinas.procesador.TratamientoPedidoMultiple;
 import org.lasencinas.procesador.TratamientoPedidoPeligroso;
 
 
